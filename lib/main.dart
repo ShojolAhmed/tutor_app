@@ -49,12 +49,10 @@ class _MyAppState extends State<MyApp> {
               ),
             ),
           ),
-          CustomIconButtom(
-            colorScheme: colorScheme,
+          const CustomIconButtom(
             iconData: Icons.notifications,
           ),
-          CustomIconButtom(
-            colorScheme: colorScheme,
+          const CustomIconButtom(
             iconData: Icons.person_rounded,
           ),
         ],
