@@ -22,8 +22,11 @@ class _MyAppState extends State<MyApp> {
   int currentPageIndex = 0;
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
+    final theme = Theme.of(context);
+    final brightness = MediaQuery.of(context).platformBrightness;
+    final isDarkMode = brightness == Brightness.dark;
     var defaultAppBar = AppBar(
+      scrolledUnderElevation: 0,
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -34,7 +37,9 @@ class _MyAppState extends State<MyApp> {
               decoration: InputDecoration(
                 hintText: 'Search',
                 filled: true,
-                fillColor: colorScheme.surfaceContainerHighest,
+                fillColor: isDarkMode
+                    ? theme.colorScheme.onSurfaceVariant.withOpacity(.5)
+                    : theme.colorScheme.surfaceContainerHighest.withOpacity(.7),
                 contentPadding: const EdgeInsets.symmetric(
                   horizontal: 16,
                 ),
@@ -61,7 +66,6 @@ class _MyAppState extends State<MyApp> {
     final appBar = [null, defaultAppBar, defaultAppBar, defaultAppBar, null];
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      themeMode: ThemeMode.light,
       theme: lightTheme,
       darkTheme: darkTheme,
       home: Scaffold(
