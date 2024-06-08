@@ -8,16 +8,12 @@ class SearchBarBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final brightness = MediaQuery.of(context).platformBrightness;
-    final isDarkMode = brightness == Brightness.dark;
     return TextField(
       onTapOutside: (event) => FocusManager.instance.primaryFocus?.unfocus(),
       decoration: InputDecoration(
         hintText: 'Search',
         filled: true,
-        fillColor: isDarkMode
-            ? theme.colorScheme.onSurfaceVariant.withOpacity(.5)
-            : theme.colorScheme.surfaceContainerHighest.withOpacity(.7),
+        fillColor: theme.colorScheme.surfaceContainerHighest,
         contentPadding: const EdgeInsets.symmetric(
           horizontal: 16,
         ),
