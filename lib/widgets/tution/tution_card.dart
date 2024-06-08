@@ -32,6 +32,7 @@ class TutionCard extends StatelessWidget {
     final theme = Theme.of(context);
     final size = MediaQuery.of(context).size;
     return CustomCard(
+      onTap: () {},
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
